@@ -16,7 +16,6 @@ public class MailController : ControllerBase
     }
 
     [HttpPost]
-    [EnableCors("AllowSpecificOrigin")]
     public Task<MailDto> SendMail(MailDto mailDto)
     {
         return _mailService.SendMail(mailDto);

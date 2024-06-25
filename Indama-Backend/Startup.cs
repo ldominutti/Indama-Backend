@@ -31,17 +31,7 @@ namespace WebApplication10
             services.AddControllers();
             services.AddScoped<IMailService, MailService>();
 
-            // Add CORS policy
-            services.AddCors(options =>
-            {
-                options.AddPolicy("AllowSpecificOrigin",
-                    builder =>
-                    {
-                        builder.WithOrigins("https://indama-project.vercel.app")
-                               .AllowAnyHeader()
-                               .AllowAnyMethod();
-                    });
-            });
+
 
             services.AddSwaggerGen(c =>
             {
@@ -65,7 +55,6 @@ namespace WebApplication10
             app.UseRouting();
 
             // Use the CORS policy
-            app.UseCors("AllowSpecificOrigin");
 
             app.UseAuthorization();
 
